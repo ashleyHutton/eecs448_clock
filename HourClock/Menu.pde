@@ -1,18 +1,30 @@
+import static javax.swing.JOptionPane.*;
+
 class Menu{
 
   Menu(){
     
   }
   
-  public void welcomeScreen(){
-    rect(10, 10, 620, 340);
+  public void displayMenu(){
+    rect(500, 250, 100, 75);
   }
   
-  public void openMenu(){
-    rect(10, 10, 620, 340);
+  // allow user to select 12 or 24 hour mode
+  public void toggleView(){
+    
+    Object[] toggleOptions = { "12 Hour", "24 Hour"};
+    showOptionDialog(null, "Select Clock Mode:", "",
+    DEFAULT_OPTION, INFORMATION_MESSAGE,
+    null, toggleOptions, toggleOptions[0]);
+    
   }
   
-  public void closeMenu(){
+  // set the current time
+  // will be called at the start of the application
+  public void setTime(){
+
+    String currentTime = showInputDialog("Enter Time\nExample of format: 1:15");
     
   }
   
