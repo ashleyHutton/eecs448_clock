@@ -15,19 +15,50 @@ class ClockFace {
   ClockFace(){
   }
   
-  public void display12Hour(int xpos, int ypos, int radius) {
+  public void displayClock(int xpos, int ypox, int radius) {
     // clock shape
-    ellipse(xpos, ypos, radius, radius);
-    // numbers
+    noStroke();
+    ellipse(xpos, ypox, radius, radius);
+  }
+  public void display12Hour(int xpos, int ypos, int radius) {
+    // display numbers
+    
+    // load picture with 1-12 clockface
+     PImage hands12;
+     hands12 = loadImage("hands12.png");
+     
+     // resize photo to size of clock and move
+     // to same location as clock    
+     hands12.resize(radius, radius);
+    image(hands12, xpos - (.5*radius), ypos - (.5*radius));
+     //translate(xpos, ypos);
   }
   
   public void display24Hour(int xpos, int ypos, int radius) {
-    // clock shape
-    ellipse(xpos, ypos, radius, radius);
     // numbers
+    // load picture with 1-24 clockface
+    PImage hands24;
+    hands24 = loadImage("hands24.png");
+   
+    // resize photo to size of clock and move
+    // to same location as clock    
+    hands24.resize(radius, radius);
+    image(hands24, xpos - (.5*radius), ypos - (.5*radius));
+   
   }
   
-  public void displayHands() {
+  public void display12Hands(int hour, int minute, int second, int radius) {
+    // define angles for hands
+    // display hour hand
+    // display minute hand
+    // display second hand
   }
   
+  public void display24Hands(int hour, int minute, int second, int radius) {
+    // define angles for hands
+    // display hour hand
+    // display minute hand
+    // display second hand
+  
+ 
 }
