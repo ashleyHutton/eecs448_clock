@@ -64,6 +64,7 @@ class Menu{
   
   public int getSecond(){
     return(m_second);
+  }
   
   // set the current time
   // will be called at the start of the application
