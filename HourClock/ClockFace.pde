@@ -59,6 +59,7 @@ class ClockFace {
     // display hour hand
     // display minute hand
     // display second hand
+  }
   
  
 }
