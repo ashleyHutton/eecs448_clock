@@ -11,7 +11,7 @@ class ClockFace {
   float minute;
   float second;
   
-  // one constructor 
+  // default constructor 
   ClockFace(){
   }
   
@@ -20,6 +20,7 @@ class ClockFace {
     noStroke();
     ellipse(xpos, ypox, radius, radius);
   }
+  
   public void display12Hour(int xpos, int ypos, int radius) {
     // display numbers
     
@@ -48,10 +49,32 @@ class ClockFace {
   }
   
   public void display12Hands(int hour, int minute, int second, int radius) {
-    // define angles for hands
-    // display hour hand
-    // display minute hand
-    // display second hand
+    
+    // Origin of the circle
+    float centerX = width/2;
+    float centerY = height/2+ 10;
+    
+    // coorelates time (seconds, minutes, hours) to radians
+    // Subtract 1/2 PI so that 12 pm starts at 90 degrees instead of at 0 degrees
+    float sec = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;
+    float min = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
+    float hou = map(hour() + norm(minute(), 0, 60), 0, 24, 0, TWO_PI*2) - HALF_PI;
+    
+    // The corresponding radius of each hand
+    float secR = radius * .4;
+    float minR = radius * .3;
+    float hourR = radius * .2;
+    
+  //(x starts, y starts, x end, y end)
+    stroke(255);
+    strokeWeight(4);
+    line(centerX, centerY, centerX + cos(sec) * secR, centerY + sin(sec) * secR);
+  
+    strokeWeight(6);
+    line(centerX, centerY, centerX + cos(min) * minR, centerY + sin(min) * minR);
+    strokeWeight(10);
+    line(centerX,centerY, centerX + cos(hou) * hourR, centerY + sin(hou) * hourR);
+    
   }
   
   public void display24Hands(int hour, int minute, int second, int radius) {
@@ -59,6 +82,7 @@ class ClockFace {
     // display hour hand
     // display minute hand
     // display second hand
+  }
   
  
 }
