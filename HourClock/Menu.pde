@@ -1,14 +1,19 @@
 import static javax.swing.JOptionPane.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 import java.util.regex.*;
 
-class Menu{
 
+
+class Menu {
+  
   Boolean m_12Hour;
   Boolean m_isAM;
   int m_hour;
   int m_minute;
   int m_second;
-  
+    
   private Pattern pattern12;
   private Pattern pattern24;
 
@@ -28,7 +33,7 @@ class Menu{
   }
   
   public void displayMenu(){
-    
+
     PImage switchTo12;
     PImage switchTo24;
     PImage changeTime;
@@ -37,13 +42,18 @@ class Menu{
     switchTo24 = loadImage("switchTo24.png");
     changeTime = loadImage("changeTime.png");
     
-    if (!m_12Hour){
-      switchTo12.resize(140, 50);
-      image(switchTo12, 170, 350);
-    }
-    else{
+    JButton switchTo12Button;
+
+    //switchTo12Button = new JButton(switchTo12);
+    
+    if (getView()){
       switchTo24.resize(140, 50);
       image(switchTo24, 170, 350);
+      
+    }
+    else{
+      switchTo12.resize(140, 50);
+      image(switchTo12, 170, 350);
     }
     
     changeTime.resize(140, 50);
@@ -74,7 +84,6 @@ class Menu{
   }
   
   public Boolean getView(){
-    
     return(m_12Hour);
   }
   
@@ -116,71 +125,92 @@ class Menu{
         
         currentTime = showInputDialog("Enter Time\nExample of format: 1:15:45 AM");
 
-        // compile and match regex to the given input
-        pattern12 = Pattern.compile(timePattern_12hr);
-        match12 = pattern12.matcher(currentTime);
-        
-        // matches found -- valid input
-        if (match12.find()){
-          
+        if (currentTime == null){
           timeIsValid = true;
-        
-          for (int i=0; i<match12.groupCount(); i++){
-            
-            System.out.println(i + ": " + match12.group(i));
-      
-          }
           
-          // set hours to first group of regex
-          m_hour = Integer.parseInt(match12.group(1));
-          // set minutes to second group of regex
-          m_minute = Integer.parseInt(match12.group(2));
-          // set seconds to third group of regext
-          m_second = Integer.parseInt(match12.group(3));
-          
-          // set m_isAM to true if user inputs 'am'
-          if (match12.group(4).equalsIgnoreCase("am")){
-            
-            m_isAM = true;
-          }
-          else {
-            
-            m_isAM = false;
-          }
-          
-          System.out.println(m_isAM);
-
+          m_hour = 0;
+          m_minute = 0;
+          m_second = 0;
         }
-
+        else{
+  
+          // compile and match regex to the given input
+          pattern12 = Pattern.compile(timePattern_12hr);
+          match12 = pattern12.matcher(currentTime);
+          
+          // matches found -- valid input
+          if (match12.find()){
+            
+            timeIsValid = true;
+          
+            for (int i=0; i<match12.groupCount(); i++){
+              
+              System.out.println(i + ": " + match12.group(i));
+        
+            }
+            
+            // set hours to first group of regex
+            m_hour = Integer.parseInt(match12.group(1));
+            // set minutes to second group of regex
+            m_minute = Integer.parseInt(match12.group(2));
+            // set seconds to third group of regext
+            m_second = Integer.parseInt(match12.group(3));
+            
+            // set m_isAM to true if user inputs 'am'
+            if (match12.group(4).equalsIgnoreCase("am")){
+              
+              m_isAM = true;
+            }
+            else {
+              
+              m_isAM = false;
+            }
+            
+            System.out.println(m_isAM);
+  
+          }
+  
+        }
       }
       
       // if in 24 hour mode
       if (!m_12Hour){
         
-        currentTime = showInputDialog("Enter Time\nExample of format: 1:15:45 AM");
+        currentTime = showInputDialog("Enter Time\nExample of format: 1:15:45");
 
-        // compile and match regex to the given input        
-        pattern24 = Pattern.compile(timePattern_24hr);
-        match24 = pattern24.matcher(currentTime);      
-        
-        if (match24.find()){
-          
+        if (currentTime == null){
           timeIsValid = true;
-        
-          for (int i=0; i<match24.groupCount(); i++){
-            System.out.println(i + ": " + match24.group(i));
-      
-          }
           
-          // set hours to first group of regex
-          m_hour = Integer.parseInt(match24.group(1));
-          // set minutes to second group of regex
-          m_minute = Integer.parseInt(match24.group(2));
-          // set seconds to third group of regext
-          m_second = Integer.parseInt(match24.group(3));
-  
+          m_hour = 0;
+          m_minute = 0;
+          m_second = 0;
         }
         
+        else{
+
+          // compile and match regex to the given input        
+          pattern24 = Pattern.compile(timePattern_24hr);
+          match24 = pattern24.matcher(currentTime);      
+          
+          if (match24.find()){
+            
+            timeIsValid = true;
+          
+            for (int i=0; i<match24.groupCount(); i++){
+              System.out.println(i + ": " + match24.group(i));
+        
+            }
+            
+            // set hours to first group of regex
+            m_hour = Integer.parseInt(match24.group(1));
+            // set minutes to second group of regex
+            m_minute = Integer.parseInt(match24.group(2));
+            // set seconds to third group of regext
+            m_second = Integer.parseInt(match24.group(3));
+    
+          }
+          
+        }
       }
     
     }
