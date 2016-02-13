@@ -1,12 +1,12 @@
-    int hourDiff;
-    int minDiff;
-    int secDiff;
+// The time difference between the current and user requested time (12 & 24 mode)
+// I made these global because I didn't have a better solution at the time
+int hourDiff12;
+int minDiff12;
+int secDiff12;
 
-    int hourDiff24;
-    int minDiff24;
-    int secDiff24;
-
-    
+int hourDiff24;
+int minDiff24;
+int secDiff24;
 
 class ClockFace {
   // ---data members---
@@ -15,11 +15,6 @@ class ClockFace {
   int m_xpos;
   int m_ypos;
   int m_radius;
-
-  // related to hands/ticking
-  float hour;
-  float minute;
-  float second;
 
   // default constructor
   ClockFace(){
@@ -60,157 +55,147 @@ class ClockFace {
 
   }
 
-  public void display12Hands(int hour, int minute, int second, int radius) {
+  public void display12Hands(int radius) {
 
     // Origin of the clock
     float centerX = width/2;
     float centerY = height/2;
 
-    // coorelates time (seconds, minutes, hours) to radians
-    // Subtract 1/2 PI so that 12 pm starts at 90 degrees instead of at 0 degrees
-    float sec = map(second() + secDiff, 0, 60, 0, TWO_PI) - HALF_PI;
-    float min = map(minute()+ minDiff + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
-    float hou = map(hour()  + hourDiff + norm(minute()+ minDiff , 0, 60), 0, 24, 0, TWO_PI*2) - HALF_PI;
+    // coorelates time (seconds, minutes, hours) to radians)
+    // Subtract 1/2 PI so that 12 pm starts at 90 degrees instead of at 0 degrees (3 pm)
+    // Multiply 2PI in (hourToradians) by 2 because the clock makes two rounds.
+    float sTr = map(second() + secDiff12, 0, 60, 0, TWO_PI) - HALF_PI;
+    float mTr = map(minute()+ minDiff12 + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
+    float hTr = map(hour() + hourDiff12 + norm(minute()+ minDiff12 , 0, 60), 0, 24, 0, TWO_PI*2) - HALF_PI;
 
     // The corresponding radius of each hand
-    float secR = radius * .4;
-    float minR = radius * .3;
-    float hourR = radius * .2;
+    float sRad = radius * .4;
+    float mRad = radius * .3;
+    float hRad = radius * .2;
 
-  //(x starts, y starts, x end, y end)
-    stroke(0);
-    strokeWeight(4);
-    line(centerX, centerY, centerX + cos(sec) * secR, centerY + sin(sec) * secR);
+    // Draws the hand (and its thickness) for each time component
+    stroke(0); // color of hands is black
 
-    strokeWeight(6);
-    line(centerX, centerY, centerX + cos(min) * minR, centerY + sin(min) * minR);
-    strokeWeight(10);
-    line(centerX,centerY, centerX + cos(hou) * hourR, centerY + sin(hou) * hourR);
+    strokeWeight(4); //thickness of second hand
+    line(centerX, centerY, centerX + cos(sTr) * sRad, centerY + sin(sTr) * sRad);
+
+    strokeWeight(6); //thickness of minute hand
+    line(centerX, centerY, centerX + cos(mTr) * mRad, centerY + sin(mTr) * mRad);
+
+    strokeWeight(10); //thickness of hour hand
+    line(centerX,centerY, centerX + cos(hTr) * hRad, centerY + sin(hTr) * hRad);
 
   }
 
-  public void display24Hands(int hour, int minute, int second, int radius) {
-  
+  public void display24Hands(int radius) {
+
     // Origin of the clock
     float centerX = width/2;
     float centerY = height/2;
 
-    float secR = radius * .4;
-    float minR = radius * .3;
-    float hourR = radius * .2;
+    // The corresponding radius of each hand
+    float sRad = radius * .4;
+    float mRad = radius * .3;
+    float hRad = radius * .2;
 
 
-    // coorelates time (seconds, minutes, hours) to radians
-    // Subtract 1/2 PI so that 12 pm starts at 90 degrees instead of at 0 degrees
-    float sec = map(second() + secDiff24, 0, 60, 0, TWO_PI) - HALF_PI;
-    float min = map(minute() + minDiff24  + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
-    float hou = map(hour() + hourDiff24 + norm(minute() + minDiff24, 0, 60), 0, 24, 0, TWO_PI) - HALF_PI;
+    // coorelates time (seconds, minutes, hours) to radians)
+    // Subtract 1/2 PI so that 12 pm starts at 90 degrees instead of at 0 degrees (3 pm)
+    float sTr = map(second() + secDiff24, 0, 60, 0, TWO_PI) - HALF_PI;
+    float mTr = map(minute() + minDiff24  + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
+    float hTr = map(hour() + hourDiff24 + norm(minute() + minDiff24, 0, 60), 0, 24, 0, TWO_PI) - HALF_PI;
 
-    //(x starts, y starts, x end, y end)
+    // Draws the hand (and its thickness) for each time component
     stroke(0);
-    strokeWeight(4);
-    line(centerX, centerY, centerX + cos(sec) * secR, centerY + sin(sec) * secR);
 
-    strokeWeight(6);
-    line(centerX, centerY, centerX + cos(min) * minR, centerY + sin(min) * minR);
-    strokeWeight(10);
-    line(centerX,centerY, centerX + cos(hou) * hourR, centerY + sin(hou) * hourR);
+    strokeWeight(4); //thickness of second hand
+    line(centerX, centerY, centerX + cos(sTr) * sRad, centerY + sin(sTr) * sRad);
+
+    strokeWeight(6); //thickness of minute hand
+    line(centerX, centerY, centerX + cos(mTr) * mRad, centerY + sin(mTr) * mRad);
+
+    strokeWeight(10); //thickness of hour hand
+    line(centerX,centerY, centerX + cos(hTr) * hRad, centerY + sin(hTr) * hRad);
 
   }
+
+
+// To change the time on the clock, we are using the current time as the starting point.
+// Then, we calcualte the difference (from user requested time) and add/subtract.
 
   public void calcDiff12() {
-
+    // If after 12 pm, clock is treated as in 24 hour mode
     int add12 = 0;
-
-    if (!mainMenu.getTimeOfDay()) {
+    if (!mainMenu.getTimeOfDay()){
       add12 = 12;
     }
-    
-    //postive return
-    if (hour() < mainMenu.getHour())
-    {
-        hourDiff = mainMenu.getHour() + add12 - hour();
-  
-       
+
+    // Positive difference to correct the clock (hour)
+    if (hour() < mainMenu.getHour()){
+        hourDiff12 = mainMenu.getHour() - hour() + add12;
     }
-    //Negative return
-    else if (hour() >= mainMenu.getHour())
-    {  
-        hourDiff = mainMenu.getHour() + add12 - hour();
- 
-       
+
+    //Negative difference to correct the clock (hour)
+    else if (hour() >= mainMenu.getHour()){
+        hourDiff12 = mainMenu.getHour() - hour() + add12;
     }
-    
-    
-    //positive return
-    if ( minute() < mainMenu.getMinute())
-    {
-      minDiff = mainMenu.getMinute() - minute();
-      
+
+    //Positive difference to correct the clock (minute)
+    if (minute() < mainMenu.getMinute()){
+      minDiff12 = mainMenu.getMinute() - minute();
     }
-    //negative return
-    else if (minute() >= mainMenu.getMinute())
-    {
-      minDiff = mainMenu.getMinute()  - minute();
-      
+
+    //Negative difference to correct the clock (minute)
+    else if (minute() >= mainMenu.getMinute()){
+      minDiff12 = mainMenu.getMinute()  - minute();
     }
-    
-    if (second() < mainMenu.getSecond())
-    {
-       secDiff = mainMenu.getSecond() - second(); 
+
+    //Positive difference to correct the clock (second)
+    if (second() < mainMenu.getSecond()){
+       secDiff12 = mainMenu.getSecond() - second();
     }
-    else if (second() >= mainMenu.getSecond())
-    {
-       secDiff = mainMenu.getSecond() - second(); 
+
+    //Negative difference to correct the clock (second)
+    else if (second() >= mainMenu.getSecond()) {
+       secDiff12 = mainMenu.getSecond() - second();
     }
-   
 
   }
-  
-  public void calcDiff24() 
+
+  public void calcDiff24()
   {
-     //postive return
-    if (hour() < mainMenu.getHour())
-    {
+    // Positive difference to correct the clock (hour)
+    if (hour() < mainMenu.getHour()){
         hourDiff24 = mainMenu.getHour() - hour();
-  
-       
     }
-    //Negative return
-    else if (hour() >= mainMenu.getHour())
-    {  
+
+    //Negative difference to correct the clock (hour)
+    else if (hour() >= mainMenu.getHour()){
         hourDiff24 = mainMenu.getHour()  - hour();
- 
-       
     }
-    
-    
-    //positive return
-    if ( minute() < mainMenu.getMinute())
-    {
+
+    // Positive difference to correct the clock (minute)
+    if ( minute() < mainMenu.getMinute()){
       minDiff24 = mainMenu.getMinute() - minute();
-      
     }
-    //negative return
-    else if (minute() >= mainMenu.getMinute())
-    {
+
+    //Negative difference to correct the clock (minute)
+    else if (minute() >= mainMenu.getMinute()){
       minDiff24 = mainMenu.getMinute()  - minute();
-      
     }
-    
-    if (second() < mainMenu.getSecond())
-    {
-       secDiff24 = mainMenu.getSecond() - second(); 
+
+    // Positive difference to correct the clock (second)
+    if (second() < mainMenu.getSecond()){
+       secDiff24 = mainMenu.getSecond() - second();
     }
-    else if (second() >= mainMenu.getSecond())
-    {
-       secDiff24 = mainMenu.getSecond() - second(); 
+
+    //Negative difference to correct the clock (second)
+    else if (second() >= mainMenu.getSecond()){
+       secDiff24 = mainMenu.getSecond() - second();
     }
-   
-    
-    
+
   }
-  
-  
+
+
 
 }
