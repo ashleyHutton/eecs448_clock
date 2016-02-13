@@ -2,6 +2,7 @@ import static javax.swing.JOptionPane.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.lang.Object;
 import java.util.regex.*;
 
 
@@ -42,7 +43,7 @@ class Menu {
     switchTo24 = loadImage("switchTo24.png");
     changeTime = loadImage("changeTime.png");
     
-    JButton switchTo12Button;
+    JButton switchTo12Button = new JButton("Switch to 12");
 
     //switchTo12Button = new JButton(switchTo12);
     
@@ -52,8 +53,9 @@ class Menu {
       
     }
     else{
-      switchTo12.resize(140, 50);
-      image(switchTo12, 170, 350);
+      frame.add(switchTo12Button);
+      //switchTo12.resize(140, 50);
+      //image(switchTo12, 170, 350);
     }
     
     changeTime.resize(140, 50);
@@ -100,6 +102,8 @@ class Menu {
   }
   
   public Boolean getTimeOfDay(){
+    // return true if AM
+    // return false if PM
     return(m_isAM);
   }
   
