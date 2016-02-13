@@ -1,11 +1,5 @@
 import static javax.swing.JOptionPane.*;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import java.lang.Object;
 import java.util.regex.*;
-
-
 
 class Menu {
   
@@ -43,9 +37,6 @@ class Menu {
     switchTo24 = loadImage("switchTo24.png");
     changeTime = loadImage("changeTime.png");
     
-    JButton switchTo12Button = new JButton("Switch to 12");
-
-    //switchTo12Button = new JButton(switchTo12);
     
     if (getView()){
       switchTo24.resize(140, 50);
@@ -53,15 +44,12 @@ class Menu {
       
     }
     else{
-      frame.add(switchTo12Button);
-      //switchTo12.resize(140, 50);
-      //image(switchTo12, 170, 350);
+      switchTo12.resize(140, 50);
+      image(switchTo12, 170, 350);
     }
     
     changeTime.resize(140, 50);
     image(changeTime, 330, 350);
-
-
     
   }
   
