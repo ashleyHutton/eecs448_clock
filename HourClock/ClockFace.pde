@@ -64,7 +64,7 @@ class ClockFace {
     // coorelates time (seconds, minutes, hours) to radians
     // Subtract 1/2 PI so that 12 pm starts at 90 degrees instead of at 0 degrees
     float sec = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;
-    float min = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
+    float min = map(minute()+ minDiff + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
     float hou = map(hour()  + hourDiff + norm(minute(), 0, 60), 0, 24, 0, TWO_PI*2) - HALF_PI;
 
     // The corresponding radius of each hand
@@ -107,28 +107,47 @@ class ClockFace {
 
   public void calcDiff() {
 
-    
     int add12 = 0;
 
     if (!mainMenu.getTimeOfDay()) {
       add12 = 12;
     }
     
+    //postive return
     if (hour() < mainMenu.getHour())
     {
-        hourDiff = (abs(((mainMenu.getHour() + add12) - hour()))) * -1 ;
+        hourDiff = mainMenu.getHour() + add12 - hour();
+  
        
     }
+    //Negative return
     else if (hour() >= mainMenu.getHour())
-    {
-        hourDiff = abs(((mainMenu.getHour() + add12) - hour())) ;
+    {  
+        hourDiff = mainMenu.getHour() + add12 - hour();
+ 
        
     }
     
-       minDiff = abs((mainMenu.getMinute() - minute()));
+    
+    //positive return
+    if ( minute() < mainMenu.getMinute())
+    {
+      minDiff = mainMenu.getMinute() - minute();
+      
+    }
+    //negative return
+    else if (minute() >= mainMenu.getMinute())
+    {
+      minDiff = mainMenu.getMinute()  - minute();
+      
+    }
+    
+   
+   
+   
        secDiff = abs((mainMenu.getSecond() - second()));
     
 
-}
+  }
 
 }
