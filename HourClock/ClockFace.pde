@@ -2,6 +2,11 @@
     int minDiff;
     int secDiff;
 
+    int hourDiff24;
+    int minDiff24;
+    int secDiff24;
+
+    
 
 class ClockFace {
   // ---data members---
@@ -85,10 +90,10 @@ class ClockFace {
   }
 
   public void display24Hands(int hour, int minute, int second, int radius) {
-  /*
+  
     // Origin of the clock
     float centerX = width/2;
-    float centerY = height/2+ 10;
+    float centerY = height/2;
 
     float secR = radius * .4;
     float minR = radius * .3;
@@ -97,15 +102,23 @@ class ClockFace {
 
     // coorelates time (seconds, minutes, hours) to radians
     // Subtract 1/2 PI so that 12 pm starts at 90 degrees instead of at 0 degrees
-    float sec = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;
-    float min = map(minute()  + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
-    float hou = map(hour()  + norm(minute(), 0, 60), 0, 24, 0, TWO_PI) - HALF_PI;
+    float sec = map(second() + secDiff24, 0, 60, 0, TWO_PI) - HALF_PI;
+    float min = map(minute() + minDiff24  + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
+    float hou = map(hour() + hourDiff24 + norm(minute() + minDiff24, 0, 60), 0, 24, 0, TWO_PI) - HALF_PI;
 
-   */
+    //(x starts, y starts, x end, y end)
+    stroke(0);
+    strokeWeight(4);
+    line(centerX, centerY, centerX + cos(sec) * secR, centerY + sin(sec) * secR);
+
+    strokeWeight(6);
+    line(centerX, centerY, centerX + cos(min) * minR, centerY + sin(min) * minR);
+    strokeWeight(10);
+    line(centerX,centerY, centerX + cos(hou) * hourR, centerY + sin(hou) * hourR);
 
   }
 
-  public void calcDiff() {
+  public void calcDiff12() {
 
     int add12 = 0;
 
@@ -153,5 +166,51 @@ class ClockFace {
    
 
   }
+  
+  public void calcDiff24() 
+  {
+     //postive return
+    if (hour() < mainMenu.getHour())
+    {
+        hourDiff24 = mainMenu.getHour() - hour();
+  
+       
+    }
+    //Negative return
+    else if (hour() >= mainMenu.getHour())
+    {  
+        hourDiff24 = mainMenu.getHour()  - hour();
+ 
+       
+    }
+    
+    
+    //positive return
+    if ( minute() < mainMenu.getMinute())
+    {
+      minDiff24 = mainMenu.getMinute() - minute();
+      
+    }
+    //negative return
+    else if (minute() >= mainMenu.getMinute())
+    {
+      minDiff24 = mainMenu.getMinute()  - minute();
+      
+    }
+    
+    if (second() < mainMenu.getSecond())
+    {
+       secDiff24 = mainMenu.getSecond() - second(); 
+    }
+    else if (second() >= mainMenu.getSecond())
+    {
+       secDiff24 = mainMenu.getSecond() - second(); 
+    }
+   
+    
+    
+  }
+  
+  
 
 }
