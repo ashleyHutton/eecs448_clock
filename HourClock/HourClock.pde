@@ -9,7 +9,6 @@ void setup() {
   mainMenu = new Menu();
   clock = new ClockFace();
 
-  mainMenu.displayMenu();
   mainMenu.toggleView();
   mainMenu.setTime();
 
@@ -26,7 +25,11 @@ void setup() {
 }
 
 void draw() {
+    background(255);
     radius = 300;
+    
+    mainMenu.displayMenu();
+    
     // Repeatedly prints the clock and its hands as they tick (12 & 24 mode)
     if (mainMenu.getView()) {
         clock.display12Hour(320,175,300);
