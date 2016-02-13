@@ -1,12 +1,8 @@
 // The time difference between the current and user requested time (12 & 24 mode)
 // I made these global because I didn't have a better solution at the time
-int hourDiff12;
-int minDiff12;
-int secDiff12;
-
-int hourDiff24;
-int minDiff24;
-int secDiff24;
+int hourDiff;
+int minDiff;
+int secDiff;
 
 class ClockFace {
   // ---data members---
@@ -64,9 +60,9 @@ class ClockFace {
     // coorelates time (seconds, minutes, hours) to radians)
     // Subtract 1/2 PI so that 12 pm starts at 90 degrees instead of at 0 degrees (3 pm)
     // Multiply 2PI in (hourToradians) by 2 because the clock makes two rounds.
-    float sTr = map(second() + secDiff12, 0, 60, 0, TWO_PI) - HALF_PI;
-    float mTr = map(minute()+ minDiff12 + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
-    float hTr = map(hour() + hourDiff12 + norm(minute()+ minDiff12 , 0, 60), 0, 24, 0, TWO_PI*2) - HALF_PI;
+    float sTr = map(second() + secDiff, 0, 60, 0, TWO_PI) - HALF_PI;
+    float mTr = map(minute()+ minDiff + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
+    float hTr = map(hour() + hourDiff + norm(minute()+ minDiff , 0, 60), 0, 24, 0, TWO_PI*2) - HALF_PI;
 
     // The corresponding radius of each hand
     float sRad = radius * .4;
@@ -99,11 +95,11 @@ class ClockFace {
     float hRad = radius * .2;
 
 
-    // coorelates time (seconds, minutes, hours) to radians)
+    // Relates time (seconds, minutes, hours) to radians)
     // Subtract 1/2 PI so that 12 pm starts at 90 degrees instead of at 0 degrees (3 pm)
-    float sTr = map(second() + secDiff24, 0, 60, 0, TWO_PI) - HALF_PI;
-    float mTr = map(minute() + minDiff24  + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
-    float hTr = map(hour() + hourDiff24 + norm(minute() + minDiff24, 0, 60), 0, 24, 0, TWO_PI) - HALF_PI;
+    float sTr = map(second() + secDiff, 0, 60, 0, TWO_PI) - HALF_PI;
+    float mTr = map(minute() + minDiff  + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
+    float hTr = map(hour() + hourDiff + norm(minute() + minDiff, 0, 60), 0, 24, 0, TWO_PI) - HALF_PI;
 
     // Draws the hand (and its thickness) for each time component
     stroke(0);
@@ -121,26 +117,18 @@ class ClockFace {
 
 
 // To change the time on the clock, we are using the current time as the starting point.
-// Then, we calcualte the difference (from user requested time) and add/subtract.
-  public void calcDiff12() {
+// Then, we calculate the difference (from user requested time) and add/subtract.
+  public void calcDiff() {
     // If after 12 pm, clock is treated as in 24 hour mode
     int add12 = 0;
 
-    if (!mainMenu.getTimeOfDay()){
+    if (!mainMenu.getTimeOfDay() && mainMenu.getView()){
       add12 = 12;
     }
 
-      hourDiff12 = mainMenu.getHour() - hour() + add12;
-      minDiff12 = mainMenu.getMinute() - minute();
-      secDiff12 = mainMenu.getSecond() - second();
-
-  }
-
-  public void calcDiff24()
-  {
-      hourDiff24 = mainMenu.getHour() - hour();
-      minDiff24 = mainMenu.getMinute() - minute();
-      secDiff24 = mainMenu.getSecond() - second();
+    hourDiff = mainMenu.getHour() - hour() + add12;
+    minDiff = mainMenu.getMinute() - minute();
+    secDiff = mainMenu.getSecond() - second();
   }
 
 }
