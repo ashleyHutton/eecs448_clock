@@ -13,14 +13,14 @@ void setup() {
   mainMenu.toggleView();
   mainMenu.setTime();
 
-  // Calculates the differnce in time between user input and current time (12 & 24 mode)
+  // Calculates the difference in time between user input and current time (12 & 24 mode)
   if (mainMenu.getView())
   {
-    clock.calcDiff12();
+    clock.calcDiff();
   }
   else
   {
-    clock.calcDiff24();
+    clock.calcDiff();
   }
 
 }
