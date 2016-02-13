@@ -55,7 +55,7 @@ class ClockFace {
 
     // Origin of the clock
     float centerX = width/2;
-    float centerY = height/2;
+    float centerY = height/2 - 43;
 
     // coorelates time (seconds, minutes, hours) to radians)
     // Subtract 1/2 PI so that 12 pm starts at 90 degrees instead of at 0 degrees (3 pm)
@@ -87,7 +87,7 @@ class ClockFace {
 
     // Origin of the clock
     float centerX = width/2;
-    float centerY = height/2;
+    float centerY = height/2 - 43;
 
     // The corresponding radius of each hand
     float sRad = radius * .4;

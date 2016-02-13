@@ -4,11 +4,10 @@ int radius;
 
 void setup() {
 
-  size(640, 360);
+  size(640, 430);
   fill(255);
   mainMenu = new Menu();
   clock = new ClockFace();
-
 
   mainMenu.displayMenu();
   mainMenu.toggleView();
@@ -27,7 +26,6 @@ void setup() {
 }
 
 void draw() {
-    background(255);
     radius = 300;
     // Repeatedly prints the clock and its hands as they tick (12 & 24 mode)
     if (mainMenu.getView()) {

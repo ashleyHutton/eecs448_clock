@@ -28,7 +28,29 @@ class Menu{
   }
   
   public void displayMenu(){
-    rect(500, 250, 100, 75);
+    
+    PImage switchTo12;
+    PImage switchTo24;
+    PImage changeTime;
+    
+    switchTo12 = loadImage("switchTo12.png");
+    switchTo24 = loadImage("switchTo24.png");
+    changeTime = loadImage("changeTime.png");
+    
+    if (!m_12Hour){
+      switchTo12.resize(140, 50);
+      image(switchTo12, 170, 350);
+    }
+    else{
+      switchTo24.resize(140, 50);
+      image(switchTo24, 170, 350);
+    }
+    
+    changeTime.resize(140, 50);
+    image(changeTime, 330, 350);
+
+
+    
   }
   
   // allow user to select 12 or 24 hour mode
@@ -82,9 +104,9 @@ class Menu{
     String currentTime;
 
     // regular expression looking for the format "##:##:## AM/PM in 12hr
-    String timePattern_12hr = "([1-9]|1[0-2]):([0-5][0-9]):([0-5][0-9])[ ]?(?i)(am|pm)$";
+    String timePattern_12hr = "(^[1-9]|1[0-2]):([0-5][0-9]):([0-5][0-9])[ ]?(?i)(am|pm)$";
     // regular expression looking for the format "##:##:## in 24hr
-    String timePattern_24hr = "([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$";
+    String timePattern_24hr = "(^[01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$";
 
     // loop until the time entered matches the given regex
     while (!timeIsValid){
