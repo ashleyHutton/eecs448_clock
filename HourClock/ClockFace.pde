@@ -122,80 +122,25 @@ class ClockFace {
 
 // To change the time on the clock, we are using the current time as the starting point.
 // Then, we calcualte the difference (from user requested time) and add/subtract.
-
   public void calcDiff12() {
     // If after 12 pm, clock is treated as in 24 hour mode
     int add12 = 0;
+
     if (!mainMenu.getTimeOfDay()){
       add12 = 12;
     }
 
-    // Positive difference to correct the clock (hour)
-    if (hour() < mainMenu.getHour()){
-        hourDiff12 = mainMenu.getHour() - hour() + add12;
-    }
-
-    //Negative difference to correct the clock (hour)
-    else if (hour() >= mainMenu.getHour()){
-        hourDiff12 = mainMenu.getHour() - hour() + add12;
-    }
-
-    //Positive difference to correct the clock (minute)
-    if (minute() < mainMenu.getMinute()){
+      hourDiff12 = mainMenu.getHour() - hour() + add12;
       minDiff12 = mainMenu.getMinute() - minute();
-    }
-
-    //Negative difference to correct the clock (minute)
-    else if (minute() >= mainMenu.getMinute()){
-      minDiff12 = mainMenu.getMinute()  - minute();
-    }
-
-    //Positive difference to correct the clock (second)
-    if (second() < mainMenu.getSecond()){
-       secDiff12 = mainMenu.getSecond() - second();
-    }
-
-    //Negative difference to correct the clock (second)
-    else if (second() >= mainMenu.getSecond()) {
-       secDiff12 = mainMenu.getSecond() - second();
-    }
+      secDiff12 = mainMenu.getSecond() - second();
 
   }
 
   public void calcDiff24()
   {
-    // Positive difference to correct the clock (hour)
-    if (hour() < mainMenu.getHour()){
-        hourDiff24 = mainMenu.getHour() - hour();
-    }
-
-    //Negative difference to correct the clock (hour)
-    else if (hour() >= mainMenu.getHour()){
-        hourDiff24 = mainMenu.getHour()  - hour();
-    }
-
-    // Positive difference to correct the clock (minute)
-    if ( minute() < mainMenu.getMinute()){
+      hourDiff24 = mainMenu.getHour() - hour();
       minDiff24 = mainMenu.getMinute() - minute();
-    }
-
-    //Negative difference to correct the clock (minute)
-    else if (minute() >= mainMenu.getMinute()){
-      minDiff24 = mainMenu.getMinute()  - minute();
-    }
-
-    // Positive difference to correct the clock (second)
-    if (second() < mainMenu.getSecond()){
-       secDiff24 = mainMenu.getSecond() - second();
-    }
-
-    //Negative difference to correct the clock (second)
-    else if (second() >= mainMenu.getSecond()){
-       secDiff24 = mainMenu.getSecond() - second();
-    }
-
+      secDiff24 = mainMenu.getSecond() - second();
   }
-
-
 
 }
