@@ -77,6 +77,12 @@ class Menu {
     return(m_12Hour);
   }
   
+  public void setView(Boolean is12Hour){
+    // set m_12Hour to true if clock is displayed in 12 hour
+    // set m_12Hour to false if clock is displayed in 24 hour
+    m_12Hour = is12Hour;
+  }
+  
   public int getHour(){
     return(m_hour);
   }
@@ -93,10 +99,6 @@ class Menu {
     // return true if AM
     // return false if PM
     return(m_isAM);
-  }
-  
-  public Boolean setTimeOfDay(Boolean newTimeOfDay){
-    m_isAM = newTimeOfDay;
   }
   
   // set the current time

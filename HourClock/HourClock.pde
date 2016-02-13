@@ -32,33 +32,13 @@ void draw() {
     mainMenu.displayMenu();
     
     // Repeatedly prints the clock and its hands as they tick (12 & 24 mode)
-    if (mainMenu.getView()) {
+    if (mainMenu.getView() || over12Hr) {
         clock.display12Hour(320,175,300);
         clock.display12Hands(radius);
     }
-    else {
+    else if ((!mainMenu.getView()) || over24Hr){
         clock.display24Hour(320,175,300);
         clock.display24Hands(radius);
     }
-    
-    
-    
-      if (over12Hr) {
-    fill(rectHighlight);
-  } else {
-    fill(rectColor);
-  }
-  
-  if (over24Hr) {
-    fill(circleHighlight);
-  } else {
-    fill(circleColor);
-  }
- 
-    if (overChangeTime) {
-    fill(circleHighlight);
-  } else {
-    fill(circleColor);
-  }
 
 }

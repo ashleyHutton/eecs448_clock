@@ -1,17 +1,18 @@
+// Source: https://processing.org/examples/button.html
+
 boolean over12Hr = false;
 boolean over24Hr = false;
 boolean overChangeTime = false;
 
 void mousePressed() {
   if (over12Hr) {
-    mainMenu.setTime();
+    mainMenu.setView(true);
   }
   if (over24Hr) {
-    mainMenu.setTime();
+    mainMenu.setView(false);
   }
   if (overChangeTime){
     mainMenu.setTime();
-    
   }
 }
 
