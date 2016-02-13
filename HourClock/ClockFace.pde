@@ -130,5 +130,18 @@ class ClockFace {
     minDiff = mainMenu.getMinute() - minute();
     secDiff = mainMenu.getSecond() - second();
   }
+  
+  public void displayAMPM(int xpos, int ypos) {
+     // load am and pm pictures
+     PImage am;
+     am = loadImage("AM.png");
+     PImage pm;
+     pm = loadImage("PM.png");
+     
+     // resize am and pm
+     am.resize(31, 21);
+     image(am, xpos + 30, ypos + 40);
+    
+  }
 
 }
