@@ -138,18 +138,9 @@ class ClockFace {
      PImage pm;
      pm = loadImage("PM.png");
      
-     // show appropriate time of day 
-     if(getTimeOfDay())
-     {
-       // resize am and display am
-       am.resize(31, 21);
-       image(am, xpos + 30, ypos + 40);
-     }
-     else {
-       // resize am and display am
-       pm.resize(31, 21);
-       image(pm, xpos + 30, ypos + 40);
-       
+     // resize am and pm
+     am.resize(31, 21);
+     image(am, xpos + 30, ypos + 40);
     
   }
 
