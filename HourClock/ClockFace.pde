@@ -63,9 +63,9 @@ class ClockFace {
 
     // coorelates time (seconds, minutes, hours) to radians
     // Subtract 1/2 PI so that 12 pm starts at 90 degrees instead of at 0 degrees
-    float sec = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;
+    float sec = map(second() + secDiff, 0, 60, 0, TWO_PI) - HALF_PI;
     float min = map(minute()+ minDiff + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
-    float hou = map(hour()  + hourDiff + norm(minute(), 0, 60), 0, 24, 0, TWO_PI*2) - HALF_PI;
+    float hou = map(hour()  + hourDiff + norm(minute()+ minDiff , 0, 60), 0, 24, 0, TWO_PI*2) - HALF_PI;
 
     // The corresponding radius of each hand
     float secR = radius * .4;
@@ -142,11 +142,15 @@ class ClockFace {
       
     }
     
+    if (second() < mainMenu.getSecond())
+    {
+       secDiff = mainMenu.getSecond() - second(); 
+    }
+    else if (second() >= mainMenu.getSecond())
+    {
+       secDiff = mainMenu.getSecond() - second(); 
+    }
    
-   
-   
-       secDiff = abs((mainMenu.getSecond() - second()));
-    
 
   }
 
