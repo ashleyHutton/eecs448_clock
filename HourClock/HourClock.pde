@@ -26,13 +26,10 @@ void setup() {
 }
 
 void draw() {
-    int hour = mainMenu.getHour();
-    int minute = mainMenu.getMinute();
-    int second = mainMenu.getSecond();
+
     radius = 300;
     // Repeatedly prints the clock and its hands as they tick (12 & 24 mode)
     if (mainMenu.getView()) {
-
         clock.display12Hour(320,175,300);
         clock.display12Hands(radius);
     }
