@@ -1,42 +1,65 @@
-int rectX, rectY;      // Position of square button
-int circleX, circleY;  // Position of circle button
-int rectSize = 90;     // Diameter of rect
-int circleSize = 93;   // Diameter of circle
-color rectColor, circleColor, baseColor;
-color rectHighlight, circleHighlight;
-color currentColor;
-boolean rectOver = false;
-boolean circleOver = false;
+boolean over12Hr = false;
+boolean over24Hr = false;
+boolean overChangeTime = false;
 
-
-void draw() {
-  background(currentColor);
-  
-  if (rectOver) {
-    fill(rectHighlight);
-  } else {
-    fill(rectColor);
+void mousePressed() {
+  if (over12Hr) {
+    mainMenu.setTime();
   }
-  stroke(255);
-  rect(rectX, rectY, rectSize, rectSize);
-  
-  if (circleOver) {
-    fill(circleHighlight);
-  } else {
-    fill(circleColor);
+  if (over24Hr) {
+    mainMenu.setTime();
   }
-  stroke(0);
-  ellipse(circleX, circleY, circleSize, circleSize);
+  if (overChangeTime){
+    mainMenu.setTime();
+    
+  }
 }
 
 void update(int x, int y) {
-  if ( overCircle(circleX, circleY, circleSize) ) {
-    circleOver = true;
-    rectOver = false;
-  } else if ( overRect(rectX, rectY, rectSize, rectSize) ) {
-    rectOver = true;
-    circleOver = false;
+  if ( over12Hr(170, 350, 140, 50) ) {
+    over12Hr = true;
+    over24Hr = false;
+    overChangeTime = false;
+  } else if ( over24Hr(170, 350, 140, 50) ) {
+    over12Hr = false;
+    over24Hr = true;
+    overChangeTime = false;
+  } 
+  else if (overChangeTime(330, 350, 140, 50) ){
+     over12Hr = false;
+     over24Hr = false;
+     overChangeTime = true;
+  }
+  else {
+    over12Hr = false;
+    over24Hr = false;
+    overChangeTime = false;
+  }
+}
+
+boolean over12Hr(int x, int y, int width, int height)  {
+  if (mouseX >= x && mouseX <= x+width && 
+      mouseY >= y && mouseY <= y+height) {
+    return true;
   } else {
-    circleOver = rectOver = false;
+    return false;
+  }
+}
+
+boolean over24Hr(int x, int y, int width, int height)  {
+  if (mouseX >= x && mouseX <= x+width && 
+      mouseY >= y && mouseY <= y+height) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+boolean overChangeTime(int x, int y, int width, int height)  {
+  if (mouseX >= x && mouseX <= x+width && 
+      mouseY >= y && mouseY <= y+height) {
+    return true;
+  } else {
+    return false;
   }
 }

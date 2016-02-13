@@ -95,6 +95,10 @@ class Menu {
     return(m_isAM);
   }
   
+  public Boolean setTimeOfDay(Boolean newTimeOfDay){
+    m_isAM = newTimeOfDay;
+  }
+  
   // set the current time
   // will be called at the start of the application
   public void setTime(){
