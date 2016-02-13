@@ -4,10 +4,6 @@ int hourDiff;
 int minDiff;
 int secDiff;
 
-int hourDiff24;
-int minDiff24;
-int secDiff24;
-
 class ClockFace {
   // ---data members---
 
@@ -91,7 +87,7 @@ class ClockFace {
 
     // Origin of the clock
     float centerX = width/2;
-    float centerY = height/2-10;
+    float centerY = height/2;
 
     // The corresponding radius of each hand
     float sRad = radius * .4;
@@ -103,7 +99,7 @@ class ClockFace {
     // Subtract 1/2 PI so that 12 pm starts at 90 degrees instead of at 0 degrees (3 pm)
     float sTr = map(second() + secDiff, 0, 60, 0, TWO_PI) - HALF_PI;
     float mTr = map(minute() + minDiff  + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
-    float hTr = map(hour() + hourDiff + norm(minute() + minDiff24, 0, 60), 0, 24, 0, TWO_PI) - HALF_PI;
+    float hTr = map(hour() + hourDiff + norm(minute() + minDiff, 0, 60), 0, 24, 0, TWO_PI) - HALF_PI;
 
     // Draws the hand (and its thickness) for each time component
     stroke(0);
@@ -130,9 +126,9 @@ class ClockFace {
       add12 = 12;
     }
 
-      hourDiff = mainMenu.getHour() - hour() + add12;
-      minDiff = mainMenu.getMinute() - minute();
-      secDiff = mainMenu.getSecond() - second();
+    hourDiff = mainMenu.getHour() - hour() + add12;
+    minDiff = mainMenu.getMinute() - minute();
+    secDiff = mainMenu.getSecond() - second();
   }
 
 }
