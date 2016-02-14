@@ -32,10 +32,12 @@ class Menu {
     PImage switchTo12;
     PImage switchTo24;
     PImage changeTime;
+    PImage changeFace;
     
     switchTo12 = loadImage("switchTo12.png");
     switchTo24 = loadImage("switchTo24.png");
     changeTime = loadImage("changeTime.png");
+    changeFace = loadImage("switchFace.png");
     
     
     if (getView()){
@@ -50,6 +52,9 @@ class Menu {
     
     changeTime.resize(140, 50);
     image(changeTime, 330, 350);
+    
+    changeFace.resize(140, 50);
+    image(changeFace, 0,0);
     
   }
   
