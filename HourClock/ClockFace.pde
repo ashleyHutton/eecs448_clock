@@ -121,6 +121,13 @@ class ClockFace {
 
     // Draws the hand (and its thickness) for each time component
     stroke(0);
+    
+      // check which face the user desires, load image accordingly
+     if(cDesigns == clockDesigns.BLACK) { stroke(0); }
+     else if(cDesigns == clockDesigns.GREEN) { stroke(27, 140, 41); }
+     else if(cDesigns == clockDesigns.BLUE) { stroke(67, 96, 221); }
+     else if(cDesigns == clockDesigns.PINK) { stroke(221, 67, 154); }
+     else if(cDesigns == clockDesigns.PIZZA) { stroke (0); }
 
     strokeWeight(4); //thickness of second hand
     line(centerX, centerY, centerX + cos(sTr) * sRad, centerY + sin(sTr) * sRad);
