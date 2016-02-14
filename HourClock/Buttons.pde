@@ -2,6 +2,7 @@
 
 boolean overChangeMode = false;
 boolean overChangeTime = false;
+boolean overChangeFace = false;
 
 void mousePressed() {
   if (overChangeMode) {
@@ -23,6 +24,9 @@ void mousePressed() {
       clock.calcDiff();
     }
   }
+  if (overChangeFace){
+    System.out.println("pressed");
+  }
 }
 
 void update(int x, int y) {
@@ -30,17 +34,26 @@ void update(int x, int y) {
      // set over12hr true if button was pressed
     overChangeMode = true;
     overChangeTime = false;
+    overChangeFace = false;
   } 
 
   else if (overChangeTime(330, 350, 140, 50) ){
      // set changeTime true if button was pressed
      overChangeMode = false;
      overChangeTime = true;
+     overChangeFace = false;
+  }
+  else if (overChangeFace(0, 0, 140, 50) ){
+     // set changeFace true if button was pressed
+     overChangeMode = false;
+     overChangeTime = false;
+     overChangeFace = true;
   }
   else {
     // set everything to false if not on button
     overChangeMode = false;
     overChangeTime = false;
+    overChangeFace = false;
   }
 }
 
@@ -58,6 +71,17 @@ boolean overChangeMode(int x, int y, int width, int height)  {
 boolean overChangeTime(int x, int y, int width, int height)  {
   
   // checks if mouse clicks changeTime button
+  if (mouseX >= x && mouseX <= x+width && 
+      mouseY >= y && mouseY <= y+height) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+boolean overChangeFace(int x, int y, int width, int height)  {
+  
+  // checks if mouse clicks changeFace button
   if (mouseX >= x && mouseX <= x+width && 
       mouseY >= y && mouseY <= y+height) {
     return true;
