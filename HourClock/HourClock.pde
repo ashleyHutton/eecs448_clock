@@ -1,3 +1,9 @@
+/** HourClock functions as our programs main method. In processing, main is split into a setup method and a draw method.
+*
+*
+* @author Ashley Hutton, Hannah Johnson, Rabel Marte
+*/
+
 Menu mainMenu;
 ClockFace clock;
 int radius;
