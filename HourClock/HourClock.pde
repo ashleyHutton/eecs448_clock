@@ -52,7 +52,6 @@ void draw() {
     }
 
     mainMenu.displayMenu();
-    System.out.println(hours);
     
     if (hours >= 12){           
       mainMenu.setTimeOfDay(false);
