@@ -3,6 +3,11 @@ int hourDiff;
 int minDiff;
 int secDiff;
 
+/** ClockFace controls the display of clock faces and hands, as well as the clock geometry/ticking
+*
+*
+* @author Ashley Hutton, Hannah Johnson, Rabel Marte
+*/
 class ClockFace {
   /** ---data members--- */
 
