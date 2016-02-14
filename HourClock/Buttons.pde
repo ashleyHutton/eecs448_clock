@@ -7,7 +7,6 @@ void mousePressed() {
   if (overChangeMode) {
     //set mode to opposite the current mode
     mainMenu.setView(!mainMenu.getView());
-    System.out.println("12 hour pressed");
   }
   if (overChangeTime){
     // call menu's set time function to update the time
