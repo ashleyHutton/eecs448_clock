@@ -9,9 +9,8 @@ void mousePressed() {
     mainMenu.setView(!mainMenu.getView());
   }
   if (overChangeTime){
+    
     // call menu's set time function to update the time
-    
-    
     // Calculates the differnce in time between user input and current time (12 & 24 mode)
     if (mainMenu.getView())
     {

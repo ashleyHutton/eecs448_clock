@@ -139,12 +139,6 @@ class Menu {
         if (match12.find()){
           
           timeIsValid = true;
-        
-          for (int i=0; i<match12.groupCount(); i++){
-            
-            System.out.println(i + ": " + match12.group(i));
-      
-          }
           
           // set hours to first group of regex
           m_hour = Integer.parseInt(match12.group(1));
@@ -204,11 +198,6 @@ class Menu {
         if (match24.find()){
           
           timeIsValid = true;
-        
-          for (int i=0; i<match24.groupCount(); i++){
-            System.out.println(i + ": " + match24.group(i));
-      
-          }
           
           // set hours to first group of regex
           m_hour = Integer.parseInt(match24.group(1));
