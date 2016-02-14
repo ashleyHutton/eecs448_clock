@@ -143,5 +143,26 @@ class ClockFace {
      image(am, xpos + 30, ypos + 40);
     
   }
-
+  
+  public void displayAMPM(int radius) {
+    // load am and pm photos
+    PImage am;
+    am = load("AM.png");
+    PImage pm;
+    pm = load("PM.png");
+    
+    if(getTimeOfDay()) {
+      am.resize(30, 21);
+      image(am, radius + 30, radius + 30);
+    }
+    else {
+      pm.resize(30, 21);
+      image(pm, radius + 30, radius + 30);
+    }
+      
+      
+      
+      
+      
+      
 }
