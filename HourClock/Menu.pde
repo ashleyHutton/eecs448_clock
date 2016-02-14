@@ -77,6 +77,12 @@ class Menu {
     return(m_12Hour);
   }
   
+  public void setView(Boolean is12Hour){
+    // set m_12Hour to true if clock is displayed in 12 hour
+    // set m_12Hour to false if clock is displayed in 24 hour
+    m_12Hour = is12Hour;
+  }
+  
   public int getHour(){
     return(m_hour);
   }
@@ -118,6 +124,9 @@ class Menu {
         currentTime = showInputDialog("Enter Time\nExample of format: 1:15:45 AM");
 
         if (currentTime == null){
+          // if user presses cancel:
+          // 1) set time to 12:00:00 if user first opened clock (or comp. clock time??)
+          // 2) do not change time if user has already been running clock
           timeIsValid = true;
           
           m_hour = 0;
@@ -161,7 +170,6 @@ class Menu {
             System.out.println(m_isAM);
   
           }
-  
         }
       }
       
@@ -171,6 +179,9 @@ class Menu {
         currentTime = showInputDialog("Enter Time\nExample of format: 1:15:45");
 
         if (currentTime == null){
+          // if user presses cancel:
+          // 1) set time to 24:00:00 if user first opened clock (or comp. clock time??)
+          // 2) do not change time if user has already been running clock
           timeIsValid = true;
           
           m_hour = 0;
@@ -200,13 +211,9 @@ class Menu {
             // set seconds to third group of regext
             m_second = Integer.parseInt(match24.group(3));
     
-          }
-          
+          }     
         }
-      }
-    
-    }
-    
-  }
-  
+      }   
+    }   
+  }  
 }

@@ -25,6 +25,7 @@ void setup() {
 }
 
 void draw() {
+    update(mouseX, mouseY);
     background(255);
     radius = 300;
     
@@ -39,4 +40,5 @@ void draw() {
         clock.display24Hour(320,175,300);
         clock.display24Hands(radius);
     }
+
 }
