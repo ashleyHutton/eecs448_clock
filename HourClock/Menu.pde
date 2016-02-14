@@ -125,9 +125,9 @@ class Menu {
         // 2) do not change time if user has already been running clock
         timeIsValid = true;
         
-        m_hour = 0;
-        m_minute = 0;
-        m_second = 0;
+        m_hour = hour() + hourDiff;
+        m_minute = minute() + minDiff;
+        m_second = second() + secDiff;
       }
       else{
 
@@ -184,9 +184,9 @@ class Menu {
         // 2) do not change time if user has already been running clock
         timeIsValid = true;
         
-        m_hour = 0;
-        m_minute = 0;
-        m_second = 0;
+        m_hour = hour() + hourDiff;
+        m_minute = minute() + minDiff;
+        m_second = second() + secDiff;
       }
       
       else{
