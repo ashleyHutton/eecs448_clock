@@ -16,9 +16,10 @@ void setup() {
   mainMenu = new Menu();
   clock = new ClockFace();
 
+    
   mainMenu.toggleView();
 
-  // Calculates the differnce in time between user input and current time (12 & 24 mode)
+  /** Calculates the differnce in time between user input and current time (12 & 24 mode) */
   if (mainMenu.getView())
   {
     mainMenu.set12HrTime();
@@ -37,6 +38,7 @@ void draw() {
     background(255);
     radius = 500;
     
+    /** Check if clock rolls over from AM/PM */
     seconds = second() + secDiff;
        
     if (seconds == (60 * k)){
@@ -60,7 +62,7 @@ void draw() {
       mainMenu.setTimeOfDay(true);
     }
 
-    // Repeatedly prints the clock and its hands as they tick (12 & 24 mode)
+    /** Repeatedly prints the clock and its hands as they tick (12 & 24 mode) */
     if (mainMenu.getView()) {
         clock.display12Hour(width,height,radius, currentDesign);
         clock.displayAMPM(radius, currentDesign);
