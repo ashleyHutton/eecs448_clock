@@ -1,3 +1,5 @@
+// 
+
 // The time difference between the current and user requested time (12 & 24 mode)
 // I made these global because I didn't have a better solution at the time
 int hourDiff;
@@ -24,6 +26,14 @@ class ClockFace {
     // load picture with 1-12 clockface
      PImage hands12;
      hands12 = loadImage("hands12.png");
+     
+     // check which face the user desires, load image accordingly
+     if(cDesigns == clockDesigns.BLACK) { hands12 = loadImage("hands12.png"); }
+     else if(cDesigns == clockDesigns.GREEN) { hands12 = loadImage("hands12-green.png"); }
+     else if(cDesigns == clockDesigns.BLUE) { hands12 = loadImage("hands12-blue.png"); }
+     else if(cDesigns == clockDesigns.PINK) { hands12 = loadImage("hands12-pink.png"); }
+     else if(cDesigns == clockDesigns.PIZZA) { hands12 = loadImage("hands12-pizza.png"); }
+     
 
      // resize photo to size of clock and move
      // to same location as clock
@@ -37,6 +47,13 @@ class ClockFace {
     // load picture with 1-24 clockface
     PImage hands24;
     hands24 = loadImage("hands24.png");
+    
+     // check which face the user desires, load image accordingly
+     if(cDesigns == clockDesigns.BLACK) { hands24 = loadImage("hands24.png"); }
+     else if(cDesigns == clockDesigns.GREEN) { hands24 = loadImage("hands24-green.png"); }
+     else if(cDesigns == clockDesigns.BLUE) { hands24 = loadImage("hands24-blue.png"); }
+     else if(cDesigns == clockDesigns.PINK) { hands24 = loadImage("hands24-pink.png"); }
+     else if(cDesigns == clockDesigns.PIZZA) { hands24 = loadImage("hands24-pizza.png"); }
 
     // resize photo to size of clock and move
     // to same location as clock
@@ -65,6 +82,13 @@ class ClockFace {
 
     // Draws the hand (and its thickness) for each time component
     stroke(0); // color of hands is black
+    
+     // check which face the user desires, load image accordingly
+     if(cDesigns == clockDesigns.BLACK) { stroke(0); }
+     else if(cDesigns == clockDesigns.GREEN) { stroke(27, 140, 41); }
+     else if(cDesigns == clockDesigns.BLUE) { stroke(67, 96, 221); }
+     else if(cDesigns == clockDesigns.PINK) { stroke(221, 67, 154); }
+     else if(cDesigns == clockDesigns.PIZZA) { stroke (0); }
 
     strokeWeight(4); //thickness of second hand
     line(centerX, centerY, centerX + cos(sTr) * sRad, centerY + sin(sTr) * sRad);
