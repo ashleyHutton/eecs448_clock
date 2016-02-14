@@ -4,7 +4,7 @@ import java.util.regex.*;
 /** Menu displays the buttons and popup windows that allow the user to 
  *  set the time and 12hr vs 24hr mode
  *
- * @author Ashley Huton, Hannah Johnson, Rabel Marte
+ * @author Ashley Hutton, Hannah Johnson, Rabel Marte
  */
 public class Menu {
 
