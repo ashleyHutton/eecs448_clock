@@ -25,7 +25,7 @@ void mousePressed() {
     }
   }
   if (overChangeFace){
-    System.out.println("pressed");
+    // change the clock face design
   }
 }
 
