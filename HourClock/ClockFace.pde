@@ -151,7 +151,7 @@ class ClockFace {
     PImage pm;
     pm = loadImage("PM.png");
     
-    if(getTimeOfDay()) {
+    if(mainMenu.getTimeOfDay()) {
       am.resize(30, 21);
       image(am, radius + 30, radius + 30);
     }
@@ -160,9 +160,4 @@ class ClockFace {
       image(pm, radius + 30, radius + 30);
     }
   }     
-      
-      
-      
-      
-      
 }
