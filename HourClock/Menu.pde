@@ -41,20 +41,20 @@ class Menu {
     
     
     if (getView()){
-      switchTo24.resize(140, 50);
-      image(switchTo24, 170, 350);
+      switchTo24.resize(150, 60);
+      image(switchTo24, (width/2 - 75), 600);
       
     }
     else{
-      switchTo12.resize(140, 50);
-      image(switchTo12, 170, 350);
+      switchTo12.resize(150, 60);
+      image(switchTo12, (width/2 - 75), 600);
     }
     
-    changeTime.resize(140, 50);
-    image(changeTime, 330, 350);
+    changeTime.resize(150, 60);
+    image(changeTime, (radius/2), 600);
     
-    changeFace.resize(140, 50);
-    image(changeFace, 0,0);
+    changeFace.resize(150, 60);
+    image(changeFace, (width/2 + radius/2 - 150), 600);
     
   }
   

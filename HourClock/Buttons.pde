@@ -30,20 +30,20 @@ void mousePressed() {
 }
 
 void update(int x, int y) {
-  if ( overChangeMode(170, 350, 140, 50) ) {
-     // set over12hr true if button was pressed
+  if ( overChangeMode((width/2 - 75), 600, 150, 60) ) {
+     // set overChangeMode true if button was pressed
     overChangeMode = true;
     overChangeTime = false;
     overChangeFace = false;
   } 
 
-  else if (overChangeTime(330, 350, 140, 50) ){
+  else if (overChangeTime((radius / 2), 600, 150, 60) ){
      // set changeTime true if button was pressed
      overChangeMode = false;
      overChangeTime = true;
      overChangeFace = false;
   }
-  else if (overChangeFace(0, 0, 140, 50) ){
+  else if (overChangeFace((width/2 + radius/2 - 150), 600, 150, 60) ){
      // set changeFace true if button was pressed
      overChangeMode = false;
      overChangeTime = false;
