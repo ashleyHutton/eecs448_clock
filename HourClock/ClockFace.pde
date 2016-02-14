@@ -28,8 +28,8 @@ class ClockFace {
      // resize photo to size of clock and move
      // to same location as clock
      hands12.resize(radius, radius);
-    image(hands12, xpos - (.5*radius), ypos - (.5*radius));
-     //translate(xpos, ypos);
+     image(hands12, 250, 60);
+    
   }
 
   public void display24Hour(int xpos, int ypos, int radius) {
@@ -41,7 +41,7 @@ class ClockFace {
     // resize photo to size of clock and move
     // to same location as clock
     hands24.resize(radius, radius);
-    image(hands24, xpos - (.5*radius), ypos - (.5*radius));
+    image(hands24, 250, 60);
 
   }
 
