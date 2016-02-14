@@ -18,12 +18,6 @@ class ClockFace {
 
   }
 
-  public void displayClock(int xpos, int ypox, int radius) {
-    // clock shape
-    noStroke();
-    ellipse(xpos, ypox, radius, radius);
-  }
-
   public void display12Hour(int xpos, int ypos, int radius) {
     // display numbers
 
