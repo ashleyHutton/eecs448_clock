@@ -35,8 +35,9 @@ void draw() {
     // Repeatedly prints the clock and its hands as they tick (12 & 24 mode)
     if (mainMenu.getView()) {
         clock.display12Hour(320,175,300);
+            clock.displayAMPM(radius);
         clock.display12Hands(radius);
-        clock.displayAMPM(radius);
+    
     }
     else {
         clock.display24Hour(320,175,300);
