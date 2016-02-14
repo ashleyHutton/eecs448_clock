@@ -153,11 +153,11 @@ class ClockFace {
     
     if(mainMenu.getTimeOfDay()) {
       am.resize(30, 21);
-      image(am, radius + 30, radius + 30);
+      image(am, radius + 50, radius - 80);
     }
     else {
       pm.resize(30, 21);
-      image(pm, radius + 30, radius + 30);
+      image(pm, radius + 50, radius - 80);
     }
   }     
 }
