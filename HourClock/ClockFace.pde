@@ -149,7 +149,7 @@ class ClockFace {
     secDiff = mainMenu.getSecond() - second();
   }
   
-  public void displayAMPM(int radius) {
+  public void displayAMPM(int radius, clockDesigns cDesigns) {
     // load am and pm photos
     PImage am;
     am = loadImage("AM.png");
