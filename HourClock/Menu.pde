@@ -228,8 +228,11 @@ public class Menu {
     }
   }
 
-  /** set the current time for 24hr
-  will be called at the start of the application if user selects 24hr */
+  /**
+  *  @pre none
+  *  @post sets m_minute, m_hour, and m_second to user desired 24 hour time
+  *  @return none
+  */
   public void set24HrTime(){
 
     /** checks if time is entered correctly */
