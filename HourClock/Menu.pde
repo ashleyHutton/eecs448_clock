@@ -106,11 +106,19 @@ class Menu {
     return(m_isAM);
   }
   
+  public void setTimeOfDay(Boolean isAM){
+    // set true if AM
+    // set false if PM
+    m_isAM = isAM;
+    
+    //System.out.println(m_isAM);
+  }
+  
 
   // set the current time for 12hr
   // will be called at the start of the application if user selects 12hr
   public void set12HrTime(){
-    
+ 
     // checks if time is entered correctly
     Boolean timeIsValid = false;
     // the string that the user inputs with the time
@@ -126,7 +134,7 @@ class Menu {
 
       if (currentTime == null){
         // if user presses cancel:
-        // 1) set time to 12:00:00 if user first opened clock (or comp. clock time??)
+        // 1) set time to set time to computer clock time if user first opens program
         // 2) do not change time if user has already been running clock
         timeIsValid = true;
         
@@ -135,7 +143,7 @@ class Menu {
         m_second = second() + secDiff;
       }
       else{
-
+        
         // compile and match regex to the given input
         pattern12 = Pattern.compile(timePattern_12hr);
         match12 = pattern12.matcher(currentTime);
@@ -156,12 +164,16 @@ class Menu {
           if (match12.group(4).equalsIgnoreCase("am")){
             
             m_isAM = true;
+            hours = m_hour;
           }
           else {
             
             m_isAM = false;
+            hours = m_hour + 12;
     
           }
+          
+          minutes = m_minute;
         }
       }          
     }   
@@ -185,7 +197,7 @@ class Menu {
 
       if (currentTime == null){
         // if user presses cancel:
-        // 1) set time to 24:00:00 if user first opened clock (or comp. clock time??)
+        // 1) set time to computer clock time if user first opens program
         // 2) do not change time if user has already been running clock
         timeIsValid = true;
         
@@ -210,7 +222,16 @@ class Menu {
           m_minute = Integer.parseInt(match24.group(2));
           // set seconds to third group of regext
           m_second = Integer.parseInt(match24.group(3));
-  
+          
+          if (m_hour > 12){
+            m_isAM = false;
+          }
+          if (m_hour <= 12){
+            m_isAM = true;
+          }
+          
+          minutes = m_minute;
+          hours = m_hour;
         }
       }   
     }  
