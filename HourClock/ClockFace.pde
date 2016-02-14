@@ -163,7 +163,7 @@ class ClockFace {
       else if(cDesigns == clockDesigns.GREEN) { am = loadImage("AM-green.png"); }
       else if(cDesigns == clockDesigns.BLUE) { am = loadImage("AM-blue.png"); }
       else if(cDesigns == clockDesigns.PINK) { am = loadImage("AM-pink.png"); }
-      else if(cDesigns == clockDesigns.PIZZA) { am = loadImage("AM-pizza.png"); }
+      else if(cDesigns == clockDesigns.PIZZA) { am = loadImage("AM.png"); }
      
       am.resize(48, 34);
       image(am, radius + 70, radius - 135);
@@ -175,7 +175,7 @@ class ClockFace {
       else if(cDesigns == clockDesigns.GREEN) { pm = loadImage("PM-green.png"); }
       else if(cDesigns == clockDesigns.BLUE) { pm = loadImage("PM-blue.png"); }
       else if(cDesigns == clockDesigns.PINK) { pm = loadImage("PM-pink.png"); }
-      else if(cDesigns == clockDesigns.PIZZA) { pm = loadImage("PM-pizza.png"); }
+      else if(cDesigns == clockDesigns.PIZZA) { pm = loadImage("PM.png"); }
       
       
       pm.resize(48, 34);
