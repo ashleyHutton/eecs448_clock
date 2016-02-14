@@ -133,12 +133,12 @@ class ClockFace {
     pm = loadImage("PM.png");
     
     if(mainMenu.getTimeOfDay()) {
-      am.resize(30, 21);
-      image(am, radius + 50, radius - 80);
+      am.resize(48, 34);
+      image(am, radius + 70, radius - 135);
     }
     else {
-      pm.resize(30, 21);
-      image(pm, radius + 50, radius - 80);
+      pm.resize(48, 34);
+      image(pm, radius + 70, radius - 135);
     }
   }     
 }
