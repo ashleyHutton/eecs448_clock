@@ -1,12 +1,11 @@
+import static javax.swing.JOptionPane.*;
+import java.util.regex.*;
+
 /** Menu displays the buttons and popup windows that allow the user to 
  *  set the time and 12hr vs 24hr mode
  *
  * @author Ashley Huton, Hannah Johnson, Rabel Marte
  */
-
-import static javax.swing.JOptionPane.*;
-import java.util.regex.*;
-
 public class Menu {
 
   Boolean m_12Hour;
