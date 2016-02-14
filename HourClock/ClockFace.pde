@@ -18,7 +18,7 @@ class ClockFace {
 
   }
 
-  public void display12Hour(int xpos, int ypos, int radius) {
+  public void display12Hour(int xpos, int ypos, int radius, clockDesigns cDesigns) {
     // display numbers
 
     // load picture with 1-12 clockface
@@ -32,7 +32,7 @@ class ClockFace {
     
   }
 
-  public void display24Hour(int xpos, int ypos, int radius) {
+  public void display24Hour(int xpos, int ypos, int radius, clockDesigns cDesigns) {
     // numbers
     // load picture with 1-24 clockface
     PImage hands24;
@@ -45,7 +45,7 @@ class ClockFace {
 
   }
 
-  public void display12Hands(int radius) {
+  public void display12Hands(int radius, clockDesigns cDesigns) {
 
     // Origin of the clock
     float centerX = width/2;
@@ -77,7 +77,7 @@ class ClockFace {
 
   }
 
-  public void display24Hands(int radius) {
+  public void display24Hands(int radius, clockDesigns cDesigns) {
 
     // Origin of the clock
     float centerX = width/2;
