@@ -147,11 +147,11 @@ class ClockFace {
   public void displayAMPM(int radius) {
     // load am and pm photos
     PImage am;
-    am = load("AM.png");
+    am = loadImage("AM.png");
     PImage pm;
-    pm = load("PM.png");
+    pm = loadImage("PM.png");
     
-    if(getTimeOfDay()) {
+    if(mainMenu.getTimeOfDay()) {
       am.resize(30, 21);
       image(am, radius + 30, radius + 30);
     }
@@ -159,7 +159,7 @@ class ClockFace {
       pm.resize(30, 21);
       image(pm, radius + 30, radius + 30);
     }
-      
+  }
       
       
       
