@@ -157,10 +157,27 @@ class ClockFace {
     pm = loadImage("PM.png");
     
     if(mainMenu.getTimeOfDay()) {
+      
+      // check which face the user desires, load image accordingly
+      if(cDesigns == clockDesigns.BLACK) { am = loadImage("AM.png"); }
+      else if(cDesigns == clockDesigns.GREEN) { am = loadImage("AM-green.png"); }
+      else if(cDesigns == clockDesigns.BLUE) { am = loadImage("AM-blue.png"); }
+      else if(cDesigns == clockDesigns.PINK) { am = loadImage("AM-pink.png"); }
+      else if(cDesigns == clockDesigns.PIZZA) { am = loadImage("AM-pizza.png"); }
+     
       am.resize(48, 34);
       image(am, radius + 70, radius - 135);
     }
     else {
+
+      // check which face the user desires, load image accordingly
+      if(cDesigns == clockDesigns.BLACK) { pm = loadImage("PM.png"); }
+      else if(cDesigns == clockDesigns.GREEN) { pm = loadImage("PM-green.png"); }
+      else if(cDesigns == clockDesigns.BLUE) { pm = loadImage("PM-blue.png"); }
+      else if(cDesigns == clockDesigns.PINK) { pm = loadImage("PM-pink.png"); }
+      else if(cDesigns == clockDesigns.PIZZA) { pm = loadImage("PM-pizza.png"); }
+      
+      
       pm.resize(48, 34);
       image(pm, radius + 70, radius - 135);
     }
