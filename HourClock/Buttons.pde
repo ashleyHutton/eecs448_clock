@@ -4,6 +4,9 @@ boolean overChangeMode = false;
 boolean overChangeTime = false;
 boolean overChangeFace = false;
 
+int index = 0;
+clockDesigns currentDesign;
+
 void mousePressed() {
   if (overChangeMode) {
     //set mode to opposite the current mode
@@ -26,6 +29,14 @@ void mousePressed() {
   }
   if (overChangeFace){
     // change the clock face design
+    currentDesign = clockDesigns.values()[index];
+    System.out.println(currentDesign);
+    
+    index++;
+    
+    if (index == 5){
+      index = 0;
+    }
   }
 }
 

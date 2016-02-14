@@ -1,4 +1,4 @@
 enum clockDesigns
 {
-  GREEN, BLUE, PINK, PIZZA, BLACK
+  BLACK, GREEN, BLUE, PINK, PIZZA
 };
