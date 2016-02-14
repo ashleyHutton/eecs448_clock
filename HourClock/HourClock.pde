@@ -36,6 +36,7 @@ void draw() {
     if (mainMenu.getView()) {
         clock.display12Hour(320,175,300);
         clock.display12Hands(radius);
+        clock.displayAMPM(radius);
     }
     else {
         clock.display24Hour(320,175,300);
