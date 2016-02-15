@@ -1,0 +1,6 @@
+Works Cited 
+
+
+-Button Example: https://processing.org/examples/button.html
+-Clock Example: https://processing.org/examples/clock.html
+-12 Hour Clock Clipart: http://cliparts.co/cliparts/ziX/55A/ziX55AgkT.png
