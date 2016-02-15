@@ -17,9 +17,9 @@ public class ClockFace {
   int m_radius;
 
   /** 
-    @pre: none
-    @post: none
-    @return: none
+    @pre none
+    @post none
+    @return none
   */
   ClockFace(){
 
@@ -27,9 +27,9 @@ public class ClockFace {
   }
 
   /** 
-    @pre: valid integers called xpos, ypox, radius, and valid enumerated type called cDesigns
-    @post: displays valid 12 hour clock face
-    @return: none
+    @pre valid integers called xpos, ypox, radius, and valid enumerated type called cDesigns
+    @post displays valid 12 hour clock face
+    @return none
   */
   public void display12Hour(int xpos, int ypos, int radius, clockDesigns cDesigns) {
 
@@ -53,9 +53,9 @@ public class ClockFace {
   }
 
   /** 
-    @pre: valid integers called xpos, ypox, radius, and valid enumerated type called cDesigns
-    @post: displays valid 24 hour clock face
-    @return: none
+    @pre valid integers called xpos, ypox, radius, and valid enumerated type called cDesigns
+    @post displays valid 24 hour clock face
+    @return none
   */
   public void display24Hour(int xpos, int ypos, int radius, clockDesigns cDesigns) {
     /** load picture with 1-24 clockface */
@@ -77,9 +77,9 @@ public class ClockFace {
   }
 
   /** 
-    @pre: valid int called radius and valid enumerated type called cDesigns
-    @post: displays the correct hands for the 12 hour clock
-    @return: none
+    @pre valid int called radius and valid enumerated type called cDesigns
+    @post displays the correct hands for the 12 hour clock
+    @return none
   */
   public void display12Hands(int radius, clockDesigns cDesigns) {
 
@@ -121,9 +121,9 @@ public class ClockFace {
   }
 
   /** 
-    @pre: valid int called radius and valid enumerated type called cDesigns
-    @post: displays the correct hands for the 24 hour clock
-    @return: none
+    @pre valid int called radius and valid enumerated type called cDesigns
+    @post displays the correct hands for the 24 hour clock
+    @return none
   */
   public void display24Hands(int radius, clockDesigns cDesigns) {
 
@@ -166,9 +166,9 @@ public class ClockFace {
 
 
   /** 
-    @pre: none
-    @post: calculates the difference between the user requested and current time
-    @return: none
+    @pre none
+    @post calculates the difference between the user requested and current time
+    @return none
   */
   public void calcDiff() {
     /** If after 12 pm, clock is treated as in 24 hour mode */
@@ -184,9 +184,9 @@ public class ClockFace {
   }
   
    /** 
-    @pre: valid int called radius and valid enumerated type called cDesigns
-    @post: displays "AM" or "PM" on 12 hour clock depending on time
-    @return: none
+    @pre valid int called radius and valid enumerated type called cDesigns
+    @post displays "AM" or "PM" on 12 hour clock depending on time
+    @return none
   */
   public void displayAMPM(int radius, clockDesigns cDesigns) {
     /**load am and pm photos */
