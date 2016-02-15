@@ -4,7 +4,7 @@
 * @author Hannah Johnson, Rabel Marte, Ashley Hutton
 */
 
-public enum clockDesigns
+enum clockDesigns
 {
   BLACK, GREEN, BLUE, PINK, PIZZA
 };
