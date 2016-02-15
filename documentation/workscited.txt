@@ -1,0 +1,23 @@
+Works Cited 
+
+
+-Button Example: https://processing.org/examples/button.html
+	-Used for guidance when creating our clickable menu of buttons
+-Clock Example: https://processing.org/examples/clock.html
+	-Used these lines to map time to angles of clock for 12 Hour version:
+	 float s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;
+ 	 float m = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI; 
+  	 float h = map(hour() + norm(minute(), 0, 60), 0, 24, 0, TWO_PI * 2) - HALF_PI;
+	-Used these lines as a starting point for the hands of our clock:
+	 stroke(255);
+  	 strokeWeight(1);
+  	 line(cx, cy, cx + cos(s) * secondsRadius, cy + sin(s) * secondsRadius);
+  	 strokeWeight(2);
+  	 line(cx, cy, cx + cos(m) * minutesRadius, cy + sin(m) * minutesRadius);
+  	 strokeWeight(4);
+  	 line(cx, cy, cx + cos(h) * hoursRadius, cy + sin(h) * hoursRadius);
+-12 Hour Clock Clipart: http://cliparts.co/cliparts/ziX/55A/ziX55AgkT.png
+	-Used for 12 Hour Clock face, made sure was legal to use
+-Processing Reference page: https://processing.org/reference/
+	-Used to learn how to use various methods within Processing
+-Doxygen Documentation Software
