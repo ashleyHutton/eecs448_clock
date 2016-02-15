@@ -5,7 +5,8 @@
 */
 
 /** @file */
-enum clockDesigns
+/// This is an enum class
+enum class clockDesigns
 {
   BLACK, GREEN, BLUE, PINK, PIZZA
 };
