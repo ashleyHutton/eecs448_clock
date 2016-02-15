@@ -39,8 +39,7 @@ void mousePressed() {
   if (overChangeFace){
     /** change the clock face design */
     currentDesign = clockDesigns.values()[index];
-    System.out.println(currentDesign);
-
+    
     index++;
 
     if (index == 5){
