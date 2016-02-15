@@ -10,7 +10,7 @@
   @post: None
   @return: None
 */
-enum clockDesigns
+public enum clockDesigns
 {
   BLACK, GREEN, BLUE, PINK, PIZZA
 };

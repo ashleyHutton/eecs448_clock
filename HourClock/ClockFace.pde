@@ -8,7 +8,7 @@ int secDiff;
 *
 * @author Ashley Hutton, Hannah Johnson, Rabel Marte
 */
-class ClockFace {
+public class ClockFace {
   /** ---data members--- */
 
   /** related to clock */
