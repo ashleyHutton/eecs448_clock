@@ -8,7 +8,7 @@ boolean overChangeMode = false;
 boolean overChangeTime = false;
 boolean overChangeFace = false;
 
-int index = 0;
+int index = 1;
 clockDesigns currentDesign;
 
 /**
